@@ -44,16 +44,154 @@
 
 
 
+// //1-2
+function sub() {
+            let number1 = document.querySelector("#number1").value;
+            let number2 = document.querySelector("#number2").value;
+            document.querySelector("#number3").value = Number(number1) - Number(number2);
+             number1 = document.querySelector("#number1").value = " ";
+             number2 = document.querySelector("#number2").value = " ";
 
+        }
+        function sum() {
+            let number1 = document.querySelector("#number1").value;
+            let number2 = document.querySelector("#number2").value;
+            document.querySelector("#number3").value = Number(number1) + Number(number2);
+            number1 = document.querySelector("#number1").value = " ";
+             number2 = document.querySelector("#number2").value = " ";
+        }
+        function multiply() {
+            let number1 = document.querySelector("#number1").value;
+            let number2 = document.querySelector("#number2").value;
+            document.querySelector("#number3").value = Number(number1) * Number(number2);
+            number1 = document.querySelector("#number1").value = " ";
+             number2 = document.querySelector("#number2").value = " ";
+        }
+        function divide() {
+            let number1 = document.querySelector("#number1").value;
+            let number2 = document.querySelector("#number2").value;
+            document.querySelector("#number3").value = Number(number1) / Number(number2);
+            number1 = document.querySelector("#number1").value = " ";
+             number2 = document.querySelector("#number2").value = " ";
+        }
+        function percentage() {
+            let number1 = document.querySelector("#number1").value;
+            let number2 = document.querySelector("#number2").value;
+            document.querySelector("#number3").value = [Number(number1) / Number(number2)] * 100 + "%";
+            number1 = document.querySelector("#number1").value = " ";
+             number2 = document.querySelector("#number2").value = " ";
+        }
+		function check() {
+    let quantity1 = document.querySelector("#Quantity1").value;
+     document.querySelector("#Amount1").value = quantity1 * 120;
+    let amount1 = document.querySelector("#Amount1").value;
+     let quantity2 = document.querySelector("#Quantity2").value;
+    document.querySelector("#Amount2").value = quantity2 * 1200 ;
+    let amount2 = document.querySelector("#Amount2").value;
+    let quantity3 = document.querySelector("#Quantity3").value;
+     document.querySelector("#Amount3").value = quantity3 * 40;
+    let amount3 = document.querySelector("#Amount3").value;
+    let quantity4 = document.querySelector("#Quantity4").value;
+    let amount4 = document.querySelector("#Amount4").value;
 
+    document.querySelector("#Amount4").value = quantity4 * 700;
+     document.querySelector("#TotalQuantity").value = Number(quantity1) + Number(quantity2) + Number(quantity3) + Number(quantity4);
+     document.querySelector("#TotalAmount").value = Number(amount1) + Number(amount2) + Number(amount3) + Number(amount4); 
+		}
 
+	 function ball() {
+            let quantity1 = document.querySelector("#Quantity1").value;
+          document.getElementById("#Amount1") = quantity1 * 120; 
+          let quantity2 = document.querySelector("#Quantity2").value;
+          document.getElementById("#Amount2") = quantity2 * 1200;   
+          let quantity3 = document.querySelector("#Quantity3").value;
+          document.getElementById("#Amount3") = quantity3 * 40; 
+            let quantity4 = document.querySelector("#Quantity4").value;
+          document.getElementById("#Amount4") = quantity4 * 60; 
 
+        }
+		function fahrenheit() {
+            let value = document.querySelector("#Value").value;
+            document.querySelector("#ConvertValue").value = [Number(value) * 9 / 5] + 32 + "F";
+             value = document.querySelector("#Value").value = 0;
+
+        } function celsius() {
+            let value = document.querySelector("#Value").value;
+            document.querySelector("#ConvertValue").value = [Number(value) - 32] * 5 / 9 + "C";
+             value = document.querySelector("#Value").value = 0;
+        
+        }
 
 
 
 
 
 	</script>
+	        <h1>Calculator</h1>
+			<br><br>
+			<input type="number" id="number1" placeholder="First Number">
+			<input type="number" id="number2" placeholder="Second Number"><br>
+			<button onclick="sub()"><b>-</b></button>
+			<button onclick="sum()"><b>+</b></button>
+			<button onclick="multiply()"><b>x</b></button>
+			<button onclick="divide()"><b>/</b></button>
+			<button onclick="percentage()"><b>%</b></button><br>
+			<input type="text" id="number3" placeholder="Answer"><br><br>
+
+
+
+			<h1>Shopping Cart</h1>
+        <table  id="shoppingcart">
+            <tr>
+                <th>S.No</th>
+                <th>Product</th>
+                <th>Price</td>
+                <th>Quantity</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Ball</td>
+                <td id="Price1">RS: 120</td>
+                <td><input type="number" id="Quantity1"></td>
+                <td><input type="number" id="Amount1"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Bat</td>
+                <td id="Price2">RS: 1200</td>
+                <td><input type="number" id="Quantity2"></td>
+                <td><input type="number" id="Amount2"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Tap</td>
+                <td id="Price3">RS: 40</td>
+                <td><input type="number" id="Quantity3"></td>
+                <td><input type="number" id="Amount3"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Wicket</td>
+                <td id="Price4">RS: 700</td>
+                <td><input type="number" id="Quantity4"></td>
+                <td><input type="number" id="Amount4"></td>
+            </tr>
+            <tr>
+                <td colspan="3">Thanks for Shopping</td>
+                <td><input type="number" id="TotalQuantity"></td>
+                <td><input type="number" id="TotalAmount"></td>
+            </tr>
+           
+            
+        </table>
+        <button onclick="check()">Check</button>
+
+		<h1>Converter</h1>
+        <input type="number" id="Value" placeholder="Value">
+        <button onclick="fahrenheit()">fahrenheit</button>
+        <button onclick="celsius()">celsius</button>
+        <input type="text" id="ConvertValue" placeholder="Convert Value"><br><br>
 	
 </body>
 </html>
