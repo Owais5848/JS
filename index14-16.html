@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14-16</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <ul>
+        <li><a href="./index.html">home</a></li>
+    </ul>
+    <div>
+        <h1>Qualifications :</h1>
+        <p id="qualifications"></p>
+    </div>
+    <div>
+        <h1>Number & Percentage :</h1>
+        <input type="text" id="student1" placeholder="write your name">
+        <input type="text" id="student2" placeholder="write your name">
+        <input type="text" id="student3" placeholder="write your name">
+        <br><br>
+        <input type="number" id="studentnum2" placeholder=" your number out of 500">
+        <input type="number" id="studentnum3" placeholder=" your number out of 500">
+        <input type="number" id="studentnum1" placeholder=" your number out of 500">
+        <p id="numandper1"></p>
+        <!-- <p id="numandper2"></p>
+        <p id="numandper3"></p> -->
+        <button onclick="check()">Check</button>
+    </div>
+    <div>
+        <p class="resultofcolour">Colour Names = [red, green, blue, yellow, pink, orange]</p>
+        <p id="resultofcolour"></p>
+        <h1> what color do you want to add to the beginning</h1>
+        <input type="text" id="addbeg" placeholder="write a colour name">
+        <button onclick="addtobegining()">Check</button>
+        <br><br>
+        <h1> what color do you want to add to the end</h1>
+        <input type="text" id="addend" placeholder="write a colour name">
+        <button onclick="addtoend()">Check</button>
+        <br><br>
+        <h1>which index do you want to add a colour</h1>
+        <input type="number" id="addcolournum" placeholder="wrte an index">
+        <input type="text" id="addcolour" placeholder="wrte a colour">
+        <button onclick="addacolour()">Check</button>
+        <br><br>
+        <h1>which index do you want to delete colour</h1>
+        <input type="number" id="deleteindexnum" placeholder="wrte an index">
+        <input type="number" id="deleteindex" placeholder="how many colours">
+        <button onclick="deleteacolourinindex()">Check</button>
+    </div>
+    <div>
+        <p id="order"></p>
+        <h1>Students score in ascending order</h1>
+        <p id="ascendingorder"></p>
+    </div>
+    <div>
+        <h1>Students score in decending order</h1>
+        <p id="decendingorder"></p>
+    </div>
+    <div>
+        <h1>Selected Element from Array</h1>
+        <p id="citiesname"></p>
+        <p id="selectedcities"></p>
+    </div>
+    <div>
+        <h1>Array Join Method</h1>
+        <p id="resultofarray"></p>
+        <p id="resultofjoinarray"></p>
+    </div>
+    <div>
+        <p id="resultfirstinfirstout"></p>
+    </div>
+    <script>
+        // let studentname = ["xyz"];
+        // let studentname1 = ["haroon"];
+        // let studentid = [09];
+        // let mixed = [studentname, studentname1, studentid];
+        let qualifications = ["SSC", "HSC", "BCS", "BS", "BCOM", "MS", "M. Phil.", "PhD"];
+        for (let index = 0; index < qualifications.length; index++) {
+            document.getElementById("qualifications").innerHTML += qualifications[index] + "<br>";
+        }
+
+        // let studentname = [student1, student2, student3];
+        // let studentnum = [studentnum1, studentnum2, studentnum3];
+        // let result2 = document.getElementById("numandper2");
+        // let result3 =document.getElementById("numandper3");
+        function check() {
+            let totalnum = 500;
+            let result;
+            let p1 = document.getElementById("numandper1");
+            let student1 = document.querySelector('#student1');
+            let student2 = document.getElementById("student2");
+            let student3 = document.getElementById("student3");
+            let studentnum1 = document.getElementById("studentnum1");
+            let studentnum2 = document.getElementById("studentnum2");
+            let studentnum3 = document.getElementById("studentnum3");
+            result = `Score of ${student1.value} is ${studentnum1.value}  Percentage ${(studentnum1.value / totalnum) * 100} % <br>
+                      Score of ${student2.value} is ${studentnum2.value}  Percentage ${(studentnum2.value / totalnum) * 100} % <br>
+                      Score of ${student3.value} is ${studentnum3.value}  Percentage ${(studentnum3.value / totalnum) * 100} %`;
+            p1.innerHTML = result;
+            student1.value = "";
+            student2.value = "";
+            student3.value = "";
+            studentnum1.value = "";
+            studentnum2.value = "";
+            studentnum3.value = "";
+        }
+        let colournames = ["red", "green", "blue", "yellow", "pink", "orange"];
+
+        let resultofcolour = document.getElementById("resultofcolour");
+        resultofcolour.innerHTML = "colour Names :" + " " + colournames;
+        function addtobegining() {
+            let addtobegining1 = document.getElementById("addbeg");
+            colournames.unshift(addtobegining1.value);
+            resultofcolour.innerHTML = "colour Names :" + " " + colournames;
+            addtobegining1.value = "";
+        }
+        function addtoend() {
+            let addtoend1 = document.getElementById("addend");
+            colournames.push(addtoend1.value);
+            resultofcolour.innerHTML = "colour Names :" + " " + colournames;
+            addtoend1.value = "";
+        }
+        function addacolour() {
+            let addcolournum = document.getElementById("addcolournum");
+            let addacolour1 = document.getElementById("addcolour");
+            colournames.splice(addcolournum.value, 1, addacolour1.value);
+            resultofcolour.innerHTML = "colour Names :" + " " + colournames;
+            addcolournum.value = "";
+            addacolour1.value = "";
+        }
+        function deleteacolourinindex() {
+            let deleteindexnum = document.getElementById("deleteindexnum");
+            let deleteindex = document.getElementById("deleteindex");
+            colournames.splice(deleteindexnum.value, deleteindex.value);
+            resultofcolour.innerHTML = "colour Names :" + " " + colournames;
+            deleteindex.value = "";
+            deleteindexnum.value = "";
+        }
+        //
+        let order = document.getElementById("order");
+        let decendingorder = document.getElementById("decendingorder");
+        let ascendingorder = document.getElementById("ascendingorder");
+        let studentsScore = [320, 230, 480, 120, 240, 200, 300, 320];
+        order.innerHTML = "Score of student :" + " " + studentsScore;
+        studentsScore.sort(function (a, b) { return a - b });
+        ascendingorder.innerHTML = studentsScore;
+        studentsScore.sort(function (a, b) { return b - a });
+        decendingorder.innerHTML = studentsScore;
+        //
+        let citiesname = ["Karachi", "Lahore", "Islamabad", "Quetta", "Peshawar"];
+        let selectedcities = citiesname.slice(0, 3);
+        document.getElementById("citiesname").innerHTML = "Cities :" + " " + citiesname;
+        document.getElementById("selectedcities").innerHTML = "Selected Cities :" + " " + selectedcities;
+        let resultofjoinarray = document.getElementById("resultofjoinarray");
+        let joinarr = ["This", "is", "my", "cat"]
+        document.getElementById("resultofarray").innerHTML = "Array :" + " " + joinarr;
+        resultofjoinarray.innerHTML = "Join Array :" + " " + joinarr.join(" ");
+        //
+        // let firstinfirstout = [];
+        // firstinfirstout.splice(0, 0) = "keyboard";
+        // firstinfirstout.splice(0, 1) = "mouse";
+        // firstinfirstout.splice(0, 2) = "printer";
+        // firstinfirstout.splice(0, 3) = "monitor";
+        // let resultfirstinfirstout = document.getElementById("resultfirstinfirstout");
+        // let result;
+
+        // for (let i = 0; i < firstinfirstout.length; i++) {
+        //     result = "Out :" + " " + firstinfirstout[i];
+        // }
+        // resultfirstinfirstout.innerHTML = result;
+
+// document.getElementById("resultfirstinfirstout").innerHTML = resultfirstinfirstout;
+
+
+
+
+    </script>
+
+</body>
+
+</html>

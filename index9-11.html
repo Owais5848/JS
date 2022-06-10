@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9-11</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+
+<body>
+    <ul>
+        <li><a href="./index.html">home</a></li>
+    </ul>
+    <div>
+        <h1>Write your City Name</h1>
+        <input type="text" placeholder="Write Your city" id="cityname">
+        <p id="resultcity"></p>
+        <button onclick="city()"> City</button>
+        <br><br>
+    </div>
+    <div>
+        <h1>Write your Gender</h1>
+        <input type="text" placeholder="Write Your Gender" id="gendername">
+        <p id="resultgender"></p>
+        <button onclick="gender()"> Gender</button><br><br>
+    </div>
+    <div>
+        <h1>Write traffic light colour</h1>
+        <input type="text" placeholder="Write Colour" id="colourname">
+        <p id="resultcolour"></p>
+        <button onclick="colour()"> Colour</button><br><br>
+    </div>
+    <div>
+        <h1>Write your car's fuel </h1>
+        <input type="number" placeholder="Write your car's fuel" id="fuelname">
+        <p id="resultfuel"></p>
+        <button onclick="fuel()"> fuel</button><br><br>
+    </div>
+    <div>
+        <h1>Check Your Result</h1>
+        <label for="totalnum"> What was Your Total Mark :</label>
+        <input required type="number" min="1" placeholder="Total Mark" id="totalnum">
+        <br><br>
+        <label for="subject1num"> What was your Score in English:</label>
+        <input required type="number" min="0" placeholder="Score in English" id="subject1num">
+        <br><br>
+        <label for="subject1num"> What was your Score in Math:</label>
+        <input required type="number" min="0" placeholder="Score in Math" id="subject2num">
+        <br><br>
+        <label for="subject1num"> What was your Score in Urdu:</label>
+        <input required type="number" min="0" placeholder="Score in Urdu" id="subject3num">
+        <br><br>
+        <button onclick="checkGrade()">Check</button>
+        <p id="totalmarks"></p>
+        <p id="obtainedmarks"></p>
+        <p id="percentage"></p>
+        <p id="grade"> </p>
+        <p id="remarks"></p>
+        <p id="text"></p>
+    </div>
+    <div>
+        <h1>Guess The Secret Number 1-10</h1>
+        <input type="number" id="guessnum" placeholder="Guess Number">
+        <p id="guessanswer"></p>
+        <button onclick="guess()">Guess</button>
+    </div>
+    <div>
+        <h1>Check The Divisible Number </h1>
+        <input id="numofdivide" type="number" placeholder="Enter Number">
+        <p id="result"></p>
+        <button onclick="factorial()">Factorial</button>
+    </div>
+    <div>
+        <h1>Check Odd or Even</h1>
+        <input id="evenodd" type="number" placeholder="Enter Number">
+        <p id="resultofevenodd"></p>
+        <button onclick="odd()">check</button>
+    </div>
+    <div>
+        <h1>Check Your Atmosphere</h1>
+        <input id="temp" type="number" placeholder="Write your area temperature">
+        <p id="resultoftemp"></p>
+        <button onclick="temperature()">Temperature</button>
+    </div>
+
+    <script>
+
+        function city() {
+            let cityname = document.getElementById("cityname");
+            let resultcity = document.getElementById("resultcity");
+
+            if (cityname.value == "Karachi" || cityname.value == "karachi") {
+                resultcity.innerHTML = "Well come to city of lights";
+            } else {
+                resultcity.innerHTML = `Well come to ${cityname} `;
+            }
+            cityname.value = "";
+        }
+        function gender() {
+            let gendername = document.getElementById("gendername");
+            let resultgender = document.getElementById("resultgender");
+            if (gendername.value == "male" || gendername.value == "Male") {
+                resultgender.innerHTML = "Good Morning Sir";
+            } else if (gendername.value == "female" || gendername.value == "Female") {
+                resultgender.innerHTML = "Good Morning Madam";
+            } else {
+                resultgender.innerHTML = "Good Morning";
+            }
+            gendername.value = "";
+        }
+        function colour() {
+            let colourname = document.getElementById("colourname");
+            let resultcolour = document.getElementById("resultcolour");
+            if (colourname.value == "red" || colourname.value == "Red") {
+                resultcolour.innerHTML = "Must Stop";
+            } else if (colourname.value == "yellow" || colourname.value == "Yellow") {
+                resultcolour.innerHTML = "Ready to move";
+            } else if (colourname.value == "green" || colourname.value == "Green") {
+                resultcolour.innerHTML = "Move now";
+            } else {
+                resultcolour.innerHTML = "Invalid Colour";
+            }
+            colourname.value = "";
+        }
+        function fuel() {
+            let fuelname = document.getElementById("fuelname");
+            let resultfuel = document.getElementById("resultfuel");
+            if (fuelname.value < "2") {
+                resultfuel.innerHTML = "Please refill the fuel in your car";
+            } else {
+                resultfuel.innerHTML = `its enough fuel`;
+            }
+            fuelname.value = "";
+        }
+        // var a = 4;
+        // if (++a === 5) {
+        //     alert("given condition for variable a is true");           //show
+        // }
+        // var b = 82;
+        // if (b++ === 83) {
+        //     alert("given condition for variable b is true");          //not show
+        // }
+        // var c = 12;
+        // if (c++ === 13) {
+        //     // alert("condition 1 is true");                             //not show
+        // }
+        // if (c === 13) {
+        //     // alert("condition 2 is true");                              //show 
+        // }
+        // if (++c < 14) {
+        //     alert("condition 3 is true");                                 //not show  
+        // }
+        // if (c === 14) {
+        //     alert("condition 4 is true");                                 //show
+        // }
+        // var materialCost = 20000;
+        // var laborCost = 2000;
+        // var totalCost = materialCost + laborCost;
+        // if (totalCost === laborCost + materialCost) {
+        //     alert("The cost equals");                                        //show
+        // }
+        // if (true) {
+        //     alert("True");                                                 //show
+        // }
+        // if (false) {
+        //     alert("False");                                                 //not show
+        // }
+        // if("car" < "cat"){
+        //     alert("car is smaller than cat");                                 //show
+        //  }
+
+        function checkGrade() {
+            let subject1num = document.querySelector('#subject1num').value;
+            let subject2num = document.querySelector('#subject2num').value;
+            let subject3num = document.querySelector('#subject3num').value;
+            let totalnum = document.querySelector("#totalnum").value;
+            let obtainedmarks;
+            let percentage;
+            let grade;
+            let remarks;
+            let text;
+            totalnum = Number(totalnum);
+            obtainedMarks = Number(subject1num) + Number(subject2num) + Number(subject3num);
+
+            if (isNaN(totalnum)) {
+                text = "Please enter a valid Total Marks";
+            }
+            if (isNaN(subject1num && subject2num && subject3num)) {
+                text = "Please enter a valid ";
+            }
+            if (totalnum < 1) {
+                text = "Please enter a positive value ";
+            }
+            if (subject1num < 0 && subject2num < 0 && subject3num < 0) {
+                text = "Please enter a positive value ";
+            }
+            if (totalnum < 1 && subject1num < 0 && subject2num < 0 && subject3num < 0) {
+                text = " Please enter a valid value ";
+            }
+            if (text) {
+                document.querySelector('#text').innerText = text;
+                return;
+            } else {
+                document.querySelector('#text').innerText = "Thanks for entering your marks";
+            }
+            let percent = (obtainedMarks / totalnum) * 100;
+            if (percent < 60) {
+                grade = "Fail"
+                remarks = "Sorry you are failed";
+            } else if (percent > 59 && percent < 70) {
+                grade = "Grade B"
+                remarks = "You need to improve"
+            } else if (percent > 69 && percent < 80) {
+                grade = "Grade A"
+                remarks = "Good";
+            } else {
+                grade = "Grade A1";
+                remarks = "Excellent";
+            }
+            document.getElementById('totalmarks').innerText = "Total Number is :" + totalnum;
+            document.getElementById('grade').innerText = "Grade :" + grade;
+            document.getElementById('obtainedmarks').innerText = "Your obtained Marks is :" + obtainedMarks;
+            document.getElementById('percentage').innerText = "Your Percentage is :" + percent + "%";
+            document.getElementById('remarks').innerText = "Remarks :" + remarks;
+            subject1num = document.querySelector('#subject1num').value = "";
+            subject2num = document.querySelector('#subject2num').value = "";
+            subject3num = document.querySelector('#subject3num').value = "";
+            totalnum = document.querySelector("#totalnum").value = "";
+        }
+
+        function guess() {
+            let secretnumber = 5;
+            let guess = document.querySelector('#guessnum');
+            let guessanswer = document.querySelector('#guessanswer');
+            if (guess.value == secretnumber) {
+                guessanswer.innerHTML = "Your answer is correct";
+            }
+            else if (guess.value == secretnumber - 1 || guess.value == secretnumber + 1) {
+                guessanswer.innerHTML = "Close enough to the correct answer";
+            } else {
+                guessanswer.innerHTML = "Your answer is incorrect";
+            }
+            guess.value = "";
+        }
+        function factorial() {
+
+            let numofdivide = document.querySelector('#numofdivide');
+            let result = document.querySelector('#result');
+            if (numofdivide.value % 3 == 0) {
+                result.innerHTML = "The number is divisible by 3";
+            } else {
+                result.innerHTML = "The number is not divisible by 3";
+            }
+            numofdivide.value = "";
+        }
+        function odd() {
+            let evenodd = document.querySelector('#evenodd');
+            let resultofevenodd = document.querySelector('#resultofevenodd');
+            if (evenodd.value % 2 == 0) {
+                resultofevenodd.innerHTML = "The number is even";
+            } else {
+                resultofevenodd.innerHTML = "The number is odd";
+            }
+            evenodd.value = "";
+        }
+        function temperature() {
+            let temp = document.querySelector('#temp');
+            let resultoftemp = document.querySelector('#resultoftemp');
+            let tempe;
+            if (temp.value > 40) {
+                tempe = "It is too hot outside."
+            } else if (temp.value > 30 && temp.value < 40) {
+                tempe = "The Weather today is Normal."
+            } else if (temp.value > 20 && temp.value < 30) {
+                tempe = "Today  Weather is cool";
+            }
+            else if (temp.value > 10 && temp.value < 20) {
+                tempe = "OMG! Todays weather is so Cool."
+            } else {
+                tempe = "OMG! Todays weather is so Cool."
+            }
+            resultoftemp.innerHTML = tempe;
+            temp.value = "";
+        }
+
+    </script>
+
+
+</body>
+
+</html>

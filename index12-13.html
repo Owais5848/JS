@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12-13</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <ul>
+        <li><a href="./index.html">home</a></li>
+    </ul>
+    <div>
+        <h1>Check Word</h1>
+        <input type="text" id="wordcheck" placeholder="Type Anything">
+        <p id="resultofword"></p>
+        <button onclick="word()">Check</button>
+    </div>
+    <div>
+        <h1>Check greater then or less then</h1>
+        <input type="text" id="firstinteger" placeholder="Write first">
+        <input type="text" id="secondinteger" placeholder="Write second">
+        <p id="resultofinteger"></p>
+        <button onclick="integer()">Check</button>
+
+    </div>
+    <div>
+        <h1>Write A Number</h1>
+        <input type="number" id="negative" placeholder="Write A Number">
+        <p id="resultofnegative"></p>
+        <button onclick="negative()">Check</button>
+    </div>
+    <div>
+        <h1>Check Password</h1>
+        <input type="text" id="password" placeholder="only 8 word">
+        <input type="text" id="confirmpassword" placeholder="Confirm Password">
+        <p id="resultofpassword"></p>
+        <button onclick="password()">Check</button>
+    </div>
+    <div>
+        <h1>Write Time & Take Message</h1>
+        <input type="number" id="taketime" placeholder="Write Time">
+        <p id="resultoftime"></p>
+        <button onclick="time()">Time</button>
+    </div>
+    <script>
+        function word() {
+            let word = document.querySelector('#wordcheck').value;
+            let checkword = word.charCodeAt(0);
+            let resultofword;
+            if (checkword >= 65 && checkword <= 90) {
+                resultofword = "This word is UpperCase";
+            } else if (checkword >= 97 && checkword <= 122) {
+                resultofword = "This word is Lowercase";
+            } else if (checkword >= 48 && checkword <= 57) {
+                resultofword = "This is a Number";
+            } else {
+                resultofword = "This word is not a word";
+            }
+            document.querySelector('#resultofword').innerHTML = resultofword;
+            document.getElementById("wordcheck").value = "";
+        }
+        function integer() {
+            let integer1 = document.querySelector('#firstinteger');
+            let integer2 = document.querySelector('#secondinteger');
+            let resultofinteger;
+            if (integer1.value > integer2.value) {
+                resultofinteger = "The first integer is greater than the second integer";
+            } else if (integer1.value < integer2.value) {
+                resultofinteger = "The first integer is less than the second integer";
+            } else {
+                resultofinteger = "The first integer is equal to the second integer";
+            }
+            document.querySelector('#resultofinteger').innerHTML = resultofinteger;
+            integer1.value = "";
+            integer2.value = "";
+        }
+        function negative() {
+            let number = document.querySelector('#negative');
+            let resultofnumber;
+            if (number.value < 0) {
+                resultofnumber = "The number is negative";
+            } else if (number.value > 0) {
+                resultofnumber = "The number is positive";
+            } else {
+                resultofnumber = "The number is zero";
+            }
+            document.querySelector('#resultofnegative').innerHTML = resultofnumber;
+            number.value = "";
+        }
+        function password() {
+            let password = document.querySelector('#password');
+            let confirmpassword = document.querySelector('#confirmpassword');
+            let resultofpassword;
+            if (password.value == confirmpassword.value) {
+                resultofpassword = "The password is correct";
+            } else {
+                resultofpassword = "The password is incorrect";
+            }
+            document.querySelector('#resultofpassword').innerHTML = resultofpassword;
+            password.value = "";
+            confirmpassword.value = "";
+        }
+
+        let greeting;
+        let hour = 13;
+        if (hour < 18) {
+            greeting = "Good day";
+        }
+        else {
+            greeting = "Good evening";
+
+            console.log(greeting);
+        }
+
+        function time() {
+            let time = document.querySelector('#taketime');
+            let resultoftime;
+            if (time.value > 0 && time.value < 12) {
+                resultoftime = "Good morning";
+            } else if (time.value >= 12 && time.value < 17) {
+                resultoftime = "Good afternoon";
+            } else if (time.value >= 17 && time.value < 21) {
+                resultoftime = "Good evening";
+            } else {
+                resultoftime = "Good night";
+            }
+            document.querySelector('#resultoftime').innerHTML = resultoftime;
+            time.value = "";
+        }
+    </script>
+</body>
+
+</html>
